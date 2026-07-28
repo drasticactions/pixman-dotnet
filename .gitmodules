@@ -1,0 +1,3 @@
+[submodule "external/pixman"]
+	path = external/pixman
+	url = https://gitlab.freedesktop.org/pixman/pixman.git
