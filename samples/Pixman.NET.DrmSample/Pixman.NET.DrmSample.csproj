@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Pixman.DrmSample</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Sample-only dependency, used to present the pixman rendering on a DRM
+         display; the shipped pixman-dotnet package must stay dependency-free. -->
+    <PackageReference Include="drm-dotnet" Version="2.4.134" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Pixman.NET/Pixman.NET.csproj" />
+  </ItemGroup>
+
+</Project>

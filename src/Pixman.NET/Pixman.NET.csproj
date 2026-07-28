@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Pixman</RootNamespace>
+    <AssemblyName>pixman-dotnet</AssemblyName>
+    <PackageId>pixman-dotnet</PackageId>
+    <Description>.NET bindings for pixman</Description>
+    <PackageTags>pixman;compositing;raster;graphics;cairo;x11;wayland;interop;bindings</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsAotCompatible>true</IsAotCompatible>
+    <NoWarn>$(NoWarn);CS8981</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>

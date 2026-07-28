@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      # The pixman submodule is only needed to regenerate bindings, which CI
+      # never does (Generated/ is committed), so skip the clone.
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install pixman (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpixman-1-0
+
+      - name: Install pixman (macOS)
+        if: runner.os == 'macOS'
+        run: brew install pixman
+
+      - name: Install pixman (Windows, msys2 mingw build)
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          install: mingw-w64-ucrt-x86_64-pixman
+
+      - name: Put msys2 runtime DLLs on PATH (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        # The resolver probes libpixman-1-0.dll, msys2's binary name.
+        run: Add-Content $env:GITHUB_PATH 'D:\a\_temp\msys64\ucrt64\bin'
+
+      - name: Build
+        run: dotnet build -c Release
+
+      - name: Test
+        run: dotnet test -c Release --no-build --logger "console;verbosity=normal"
+
+      - name: Pack
+        if: runner.os == 'Linux'
+        run: dotnet pack src/Pixman.NET/Pixman.NET.csproj -c Release -o artifacts
+
+      - name: Upload package artifacts
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/*

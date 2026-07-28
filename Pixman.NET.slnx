@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/Pixman.NET.DrmSample/Pixman.NET.DrmSample.csproj" />
+    <Project Path="samples/Pixman.NET.Sample/Pixman.NET.Sample.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Pixman.NET/Pixman.NET.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Pixman.NET.Tests/Pixman.NET.Tests.csproj" />
+  </Folder>
+</Solution>

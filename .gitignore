@@ -480,3 +480,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# pixman-dotnet: keep the ClangSharp response files, ignore the generated include dir
+!eng/*.rsp
+eng/include/
