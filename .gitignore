@@ -484,3 +484,6 @@ $RECYCLE.BIN/
 # pixman-dotnet: keep the ClangSharp response files, ignore the generated include dir
 !eng/*.rsp
 eng/include/
+
+# Native payloads built by eng/build-natives.*
+/runtimes/
