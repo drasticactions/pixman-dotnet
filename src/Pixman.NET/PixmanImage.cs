@@ -42,7 +42,10 @@ public sealed unsafe class PixmanImage : IDisposable
     public static PixmanImage CreateBits(PixmanFormat format, int width, int height)
     {
         var image = Libpixman.pixman_image_create_bits((pixman_format_code_t)format, width, height, null, 0);
-        PixmanException.ThrowIfNull(image, $"pixman_image_create_bits({format}, {width}x{height}) failed");
+        if (image == null)
+        {
+            throw new PixmanException($"pixman_image_create_bits({format}, {width}x{height}) failed");
+        }
         return new PixmanImage(image);
     }
 
@@ -55,7 +58,10 @@ public sealed unsafe class PixmanImage : IDisposable
     public static PixmanImage CreateBitsNoClear(PixmanFormat format, int width, int height)
     {
         var image = Libpixman.pixman_image_create_bits_no_clear((pixman_format_code_t)format, width, height, null, 0);
-        PixmanException.ThrowIfNull(image, $"pixman_image_create_bits_no_clear({format}, {width}x{height}) failed");
+        if (image == null)
+        {
+            throw new PixmanException($"pixman_image_create_bits_no_clear({format}, {width}x{height}) failed");
+        }
         return new PixmanImage(image);
     }
 
@@ -70,7 +76,10 @@ public sealed unsafe class PixmanImage : IDisposable
     public static PixmanImage CreateBits(PixmanFormat format, int width, int height, IntPtr bits, int strideBytes)
     {
         var image = Libpixman.pixman_image_create_bits((pixman_format_code_t)format, width, height, (uint*)bits, strideBytes);
-        PixmanException.ThrowIfNull(image, $"pixman_image_create_bits({format}, {width}x{height}, stride {strideBytes}) failed");
+        if (image == null)
+        {
+            throw new PixmanException($"pixman_image_create_bits({format}, {width}x{height}, stride {strideBytes}) failed");
+        }
         return new PixmanImage(image);
     }
 
