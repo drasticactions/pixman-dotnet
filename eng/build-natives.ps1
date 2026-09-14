@@ -12,6 +12,16 @@ if (-not (Test-Path "$root/external/pixman/meson.build")) {
     throw 'external/pixman is empty: run git submodule update --init.'
 }
 
+if (-not (Get-Command cl.exe -ErrorAction SilentlyContinue)) {
+    $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
+    if (-not (Test-Path $vswhere)) { throw 'No cl.exe on PATH and no vswhere.exe to find Visual Studio.' }
+    $vs = & $vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+    if (-not $vs) { throw 'No Visual Studio with the C++ x64 toolset is installed.' }
+    Import-Module (Join-Path $vs 'Common7/Tools/Microsoft.VisualStudio.DevShell.dll')
+    Enter-VsDevShell -VsInstallPath $vs -SkipAutomaticLocation -DevCmdArguments '-arch=x64 -host_arch=x64' | Out-Null
+    if (-not (Get-Command cl.exe -ErrorAction SilentlyContinue)) { throw 'Enter-VsDevShell did not put cl.exe on PATH.' }
+}
+
 $build = Join-Path $root "artifacts/natives/$Rid"
 $out = Join-Path $root "runtimes/$Rid/native"
 if (Test-Path $build) { Remove-Item -Recurse -Force $build }
