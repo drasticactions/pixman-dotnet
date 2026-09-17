@@ -487,3 +487,4 @@ eng/include/
 
 # Native payloads built by eng/build-natives.*
 /runtimes/
+CLAUDE.md
