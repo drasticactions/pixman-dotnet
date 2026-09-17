@@ -54,6 +54,12 @@ $mesonArgs = @(
     '-Dopenmp=disabled'
 )
 
+if ($targetArch -eq 'arm64') {
+    # pixman's meson enables the x86 MMX/SSE paths for any MSVC compiler, and the
+    # arm64 cl rejects <mmintrin.h>; its A64 NEON path is GNU assembler only.
+    $mesonArgs += @('-Dmmx=disabled', '-Dsse2=disabled', '-Dssse3=disabled', '-Da64-neon=disabled')
+}
+
 if ($targetArch -ne $hostArch) {
     $cross = "$build.ini"
     @"
