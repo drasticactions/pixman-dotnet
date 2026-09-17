@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 
 namespace Pixman.Native;
 
+#if !(IOS || TVOS || MACCATALYST)
 /// <summary>
 /// Arguments of <see cref="Libpixman.pixman_dotnet_composite_glyphs"/>, the browser-wasm shim
 /// around <see cref="Libpixman.pixman_composite_glyphs"/>. Layout matches
@@ -29,17 +30,21 @@ public unsafe struct pixman_dotnet_composite_glyphs_args
 #pragma warning restore CS1591
 }
 
+#endif
+
 /// <summary>Hand-written members of the <see cref="Libpixman"/> interop class.</summary>
 public static unsafe partial class Libpixman
 {
+#if !(IOS || TVOS || MACCATALYST)
     /// <summary>
     /// Browser-wasm only: calls <see cref="pixman_composite_glyphs"/> through a one-argument shim
     /// compiled into the package's <c>pixman-1.a</c>. The Mono interpreter that runs browser apps
     /// cannot invoke a P/Invoke with more than 12 integer arguments, and
-    /// <see cref="pixman_composite_glyphs"/> has 15. The symbol does not exist on other platforms.
+    /// <see cref="pixman_composite_glyphs"/> has 15.
     /// </summary>
     [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_dotnet_composite_glyphs(pixman_dotnet_composite_glyphs_args* args);
+#endif
 
     /// <summary>The library name used by the generated <c>DllImport</c> attributes.</summary>
     /// <remarks>

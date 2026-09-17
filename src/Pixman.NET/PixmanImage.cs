@@ -477,6 +477,7 @@ public sealed unsafe class PixmanImage : IDisposable
     {
         fixed (PixmanGlyph* glyphsPtr = glyphs)
         {
+#if !(IOS || TVOS || MACCATALYST)
             if (OperatingSystem.IsBrowser())
             {
                 // 15 arguments exceed what the wasm interpreter can pass; see the shim's docs.
@@ -501,6 +502,7 @@ public sealed unsafe class PixmanImage : IDisposable
                 Libpixman.pixman_dotnet_composite_glyphs(&args);
                 return;
             }
+#endif
 
             Libpixman.pixman_composite_glyphs(
                 (pixman_op_t)op, source.NativePtr, NativePtr, (pixman_format_code_t)maskFormat,
