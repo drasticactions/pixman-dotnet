@@ -55,8 +55,6 @@ unsafe
 dotnet test
 ```
 
-Tests that call into pixman skip when the native library is not installed.
-
 ## Samples
 
 ```sh

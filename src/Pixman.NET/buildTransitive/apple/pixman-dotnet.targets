@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <PixmanXcframeworkPath Condition="'$(PixmanXcframeworkPath)' == ''">$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', '..', 'xcframeworks', 'pixman.xcframework'))</PixmanXcframeworkPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(PixmanSkipNativeReference)' != 'true' and Exists('$(PixmanXcframeworkPath)')">
+    <NativeReference Include="$(PixmanXcframeworkPath)" Kind="Static" ForceLoad="true" SmartLink="true" IsCxx="false" />
+  </ItemGroup>
+</Project>

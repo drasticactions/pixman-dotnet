@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework />
+    <PixmanApplePlatformVersion Condition="'$(PixmanApplePlatformVersion)' == ''">26.5</PixmanApplePlatformVersion>
+    <TargetFrameworks>net10.0-android;net10.0-ios$(PixmanApplePlatformVersion);net10.0-tvos$(PixmanApplePlatformVersion);net10.0-maccatalyst$(PixmanApplePlatformVersion)</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <ApplicationId>com.drasticactions.pixman.tests</ApplicationId>
+    <ApplicationTitle>Pixman Tests</ApplicationTitle>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(TargetFramework.Contains('-android'))">
+    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
+    <RuntimeIdentifiers>android-arm64;android-x64</RuntimeIdentifiers>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(TargetFramework.Contains('-ios')) or $(TargetFramework.Contains('-tvos')) or $(TargetFramework.Contains('-maccatalyst'))">
+    <SupportedOSPlatformVersion Condition="!$(TargetFramework.Contains('-maccatalyst'))">15.0</SupportedOSPlatformVersion>
+    <UseInterpreter>true</UseInterpreter>
+  </PropertyGroup>
+
+  <ItemGroup Condition="$(TargetFramework.Contains('-android'))">
+    <Compile Remove="Apple/**" />
+  </ItemGroup>
+  <ItemGroup Condition="!$(TargetFramework.Contains('-android'))">
+    <Compile Remove="Android/**" />
+  </ItemGroup>
+
+</Project>

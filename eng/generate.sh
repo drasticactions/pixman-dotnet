@@ -33,3 +33,9 @@ RESOURCE_DIR="$(clang -print-resource-dir)"
 dotnet tool run ClangSharpPInvokeGenerator -- --resource-directory "$RESOURCE_DIR" "@eng/pixman.rsp" || true
 
 test -f src/Pixman.NET/Native/Generated/pixman/Libpixman.cs
+
+# ClangSharp writes the library name as a string literal. Route it through the
+# LibraryName constant instead so the iOS/tvOS/Catalyst builds, where pixman is
+# linked statically, can switch it to "__Internal" (see Libpixman.Manual.cs).
+find src/Pixman.NET/Native/Generated -name '*.cs' -exec sed -i.bak 's/\[DllImport("pixman-1",/[DllImport(LibraryName,/' {} \; -exec rm {}.bak \;
+grep -rq 'DllImport(LibraryName,' src/Pixman.NET/Native/Generated/pixman/Libpixman.cs

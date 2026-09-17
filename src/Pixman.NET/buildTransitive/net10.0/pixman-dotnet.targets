@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <PixmanWasmLibrary Condition="'$(PixmanWasmLibrary)' == ''">$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', '..', 'runtimes', 'browser-wasm', 'native', 'pixman-1.a'))</PixmanWasmLibrary>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'browser-wasm' and '$(PixmanSkipNativeReference)' != 'true' and Exists('$(PixmanWasmLibrary)')">
+    <NativeFileReference Include="$(PixmanWasmLibrary)" />
+  </ItemGroup>
+</Project>

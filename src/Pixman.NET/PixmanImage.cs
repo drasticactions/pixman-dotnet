@@ -477,6 +477,31 @@ public sealed unsafe class PixmanImage : IDisposable
     {
         fixed (PixmanGlyph* glyphsPtr = glyphs)
         {
+            if (OperatingSystem.IsBrowser())
+            {
+                // 15 arguments exceed what the wasm interpreter can pass; see the shim's docs.
+                var args = new pixman_dotnet_composite_glyphs_args
+                {
+                    op = (pixman_op_t)op,
+                    src = source.NativePtr,
+                    dest = NativePtr,
+                    mask_format = (pixman_format_code_t)maskFormat,
+                    src_x = sourceX,
+                    src_y = sourceY,
+                    mask_x = maskX,
+                    mask_y = maskY,
+                    dest_x = destX,
+                    dest_y = destY,
+                    width = width,
+                    height = height,
+                    cache = cache.NativePtr,
+                    n_glyphs = glyphs.Length,
+                    glyphs = (pixman_glyph_t*)glyphsPtr,
+                };
+                Libpixman.pixman_dotnet_composite_glyphs(&args);
+                return;
+            }
+
             Libpixman.pixman_composite_glyphs(
                 (pixman_op_t)op, source.NativePtr, NativePtr, (pixman_format_code_t)maskFormat,
                 sourceX, sourceY, maskX, maskY, destX, destY, width, height,

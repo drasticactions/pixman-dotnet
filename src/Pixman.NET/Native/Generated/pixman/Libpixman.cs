@@ -10,636 +10,636 @@ namespace Pixman.Native;
 
 public static unsafe partial class Libpixman
 {
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_transform_init_identity([NativeTypeName("struct pixman_transform *")] pixman_transform* matrix);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_point_3d([NativeTypeName("const struct pixman_transform *")] pixman_transform* transform, [NativeTypeName("struct pixman_vector *")] pixman_vector* vector);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_point([NativeTypeName("const struct pixman_transform *")] pixman_transform* transform, [NativeTypeName("struct pixman_vector *")] pixman_vector* vector);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_multiply([NativeTypeName("struct pixman_transform *")] pixman_transform* dst, [NativeTypeName("const struct pixman_transform *")] pixman_transform* l, [NativeTypeName("const struct pixman_transform *")] pixman_transform* r);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_transform_init_scale([NativeTypeName("struct pixman_transform *")] pixman_transform* t, [NativeTypeName("pixman_fixed_t")] int sx, [NativeTypeName("pixman_fixed_t")] int sy);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_scale([NativeTypeName("struct pixman_transform *")] pixman_transform* forward, [NativeTypeName("struct pixman_transform *")] pixman_transform* reverse, [NativeTypeName("pixman_fixed_t")] int sx, [NativeTypeName("pixman_fixed_t")] int sy);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_transform_init_rotate([NativeTypeName("struct pixman_transform *")] pixman_transform* t, [NativeTypeName("pixman_fixed_t")] int cos, [NativeTypeName("pixman_fixed_t")] int sin);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_rotate([NativeTypeName("struct pixman_transform *")] pixman_transform* forward, [NativeTypeName("struct pixman_transform *")] pixman_transform* reverse, [NativeTypeName("pixman_fixed_t")] int c, [NativeTypeName("pixman_fixed_t")] int s);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_transform_init_translate([NativeTypeName("struct pixman_transform *")] pixman_transform* t, [NativeTypeName("pixman_fixed_t")] int tx, [NativeTypeName("pixman_fixed_t")] int ty);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_translate([NativeTypeName("struct pixman_transform *")] pixman_transform* forward, [NativeTypeName("struct pixman_transform *")] pixman_transform* reverse, [NativeTypeName("pixman_fixed_t")] int tx, [NativeTypeName("pixman_fixed_t")] int ty);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_bounds([NativeTypeName("const struct pixman_transform *")] pixman_transform* matrix, [NativeTypeName("struct pixman_box16 *")] pixman_box16* b);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_invert([NativeTypeName("struct pixman_transform *")] pixman_transform* dst, [NativeTypeName("const struct pixman_transform *")] pixman_transform* src);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_is_identity([NativeTypeName("const struct pixman_transform *")] pixman_transform* t);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_is_scale([NativeTypeName("const struct pixman_transform *")] pixman_transform* t);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_is_int_translate([NativeTypeName("const struct pixman_transform *")] pixman_transform* t);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_is_inverse([NativeTypeName("const struct pixman_transform *")] pixman_transform* a, [NativeTypeName("const struct pixman_transform *")] pixman_transform* b);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_transform_from_pixman_f_transform([NativeTypeName("struct pixman_transform *")] pixman_transform* t, [NativeTypeName("const struct pixman_f_transform *")] pixman_f_transform* ft);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_f_transform_from_pixman_transform([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* ft, [NativeTypeName("const struct pixman_transform *")] pixman_transform* t);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_f_transform_invert([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* dst, [NativeTypeName("const struct pixman_f_transform *")] pixman_f_transform* src);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_f_transform_point([NativeTypeName("const struct pixman_f_transform *")] pixman_f_transform* t, [NativeTypeName("struct pixman_f_vector *")] pixman_f_vector* v);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_f_transform_point_3d([NativeTypeName("const struct pixman_f_transform *")] pixman_f_transform* t, [NativeTypeName("struct pixman_f_vector *")] pixman_f_vector* v);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_f_transform_multiply([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* dst, [NativeTypeName("const struct pixman_f_transform *")] pixman_f_transform* l, [NativeTypeName("const struct pixman_f_transform *")] pixman_f_transform* r);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_f_transform_init_scale([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* t, double sx, double sy);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_f_transform_scale([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* forward, [NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* reverse, double sx, double sy);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_f_transform_init_rotate([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* t, double cos, double sin);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_f_transform_rotate([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* forward, [NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* reverse, double c, double s);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_f_transform_init_translate([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* t, double tx, double ty);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_f_transform_translate([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* forward, [NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* reverse, double tx, double ty);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_f_transform_bounds([NativeTypeName("const struct pixman_f_transform *")] pixman_f_transform* t, [NativeTypeName("struct pixman_box16 *")] pixman_box16* b);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_f_transform_init_identity([NativeTypeName("struct pixman_f_transform *")] pixman_f_transform* t);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_set_static_pointers([NativeTypeName("pixman_box16_t *")] pixman_box16* empty_box, [NativeTypeName("pixman_region16_data_t *")] pixman_region16_data* empty_data, [NativeTypeName("pixman_region16_data_t *")] pixman_region16_data* broken_data);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_init([NativeTypeName("pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_init_rect([NativeTypeName("pixman_region16_t *")] pixman_region16* region, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_init_rects([NativeTypeName("pixman_region16_t *")] pixman_region16* region, [NativeTypeName("const pixman_box16_t *")] pixman_box16* boxes, int count);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_init_with_extents([NativeTypeName("pixman_region16_t *")] pixman_region16* region, [NativeTypeName("const pixman_box16_t *")] pixman_box16* extents);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_init_from_image([NativeTypeName("pixman_region16_t *")] pixman_region16* region, [NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_fini([NativeTypeName("pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_translate([NativeTypeName("pixman_region16_t *")] pixman_region16* region, int x, int y);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_copy([NativeTypeName("pixman_region16_t *")] pixman_region16* dest, [NativeTypeName("const pixman_region16_t *")] pixman_region16* source);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_intersect([NativeTypeName("pixman_region16_t *")] pixman_region16* new_reg, [NativeTypeName("const pixman_region16_t *")] pixman_region16* reg1, [NativeTypeName("const pixman_region16_t *")] pixman_region16* reg2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_union([NativeTypeName("pixman_region16_t *")] pixman_region16* new_reg, [NativeTypeName("const pixman_region16_t *")] pixman_region16* reg1, [NativeTypeName("const pixman_region16_t *")] pixman_region16* reg2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_union_rect([NativeTypeName("pixman_region16_t *")] pixman_region16* dest, [NativeTypeName("const pixman_region16_t *")] pixman_region16* source, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_intersect_rect([NativeTypeName("pixman_region16_t *")] pixman_region16* dest, [NativeTypeName("const pixman_region16_t *")] pixman_region16* source, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_subtract([NativeTypeName("pixman_region16_t *")] pixman_region16* reg_d, [NativeTypeName("const pixman_region16_t *")] pixman_region16* reg_m, [NativeTypeName("const pixman_region16_t *")] pixman_region16* reg_s);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_inverse([NativeTypeName("pixman_region16_t *")] pixman_region16* new_reg, [NativeTypeName("const pixman_region16_t *")] pixman_region16* reg1, [NativeTypeName("const pixman_box16_t *")] pixman_box16* inv_rect);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_contains_point([NativeTypeName("const pixman_region16_t *")] pixman_region16* region, int x, int y, [NativeTypeName("pixman_box16_t *")] pixman_box16* box);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern pixman_region_overlap_t pixman_region_contains_rectangle([NativeTypeName("const pixman_region16_t *")] pixman_region16* region, [NativeTypeName("const pixman_box16_t *")] pixman_box16* prect);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_empty([NativeTypeName("const pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_not_empty([NativeTypeName("const pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_box16_t *")]
     public static extern pixman_box16* pixman_region_extents([NativeTypeName("const pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_region_n_rects([NativeTypeName("const pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_box16_t *")]
     public static extern pixman_box16* pixman_region_rectangles([NativeTypeName("const pixman_region16_t *")] pixman_region16* region, int* n_rects);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_equal([NativeTypeName("const pixman_region16_t *")] pixman_region16* region1, [NativeTypeName("const pixman_region16_t *")] pixman_region16* region2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region_selfcheck([NativeTypeName("pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_reset([NativeTypeName("pixman_region16_t *")] pixman_region16* region, [NativeTypeName("const pixman_box16_t *")] pixman_box16* box);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region_clear([NativeTypeName("pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_init([NativeTypeName("pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_init_rect([NativeTypeName("pixman_region32_t *")] pixman_region32* region, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_init_rects([NativeTypeName("pixman_region32_t *")] pixman_region32* region, [NativeTypeName("const pixman_box32_t *")] pixman_box32* boxes, int count);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_init_with_extents([NativeTypeName("pixman_region32_t *")] pixman_region32* region, [NativeTypeName("const pixman_box32_t *")] pixman_box32* extents);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_init_from_image([NativeTypeName("pixman_region32_t *")] pixman_region32* region, [NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_fini([NativeTypeName("pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_translate([NativeTypeName("pixman_region32_t *")] pixman_region32* region, int x, int y);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_copy([NativeTypeName("pixman_region32_t *")] pixman_region32* dest, [NativeTypeName("const pixman_region32_t *")] pixman_region32* source);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_intersect([NativeTypeName("pixman_region32_t *")] pixman_region32* new_reg, [NativeTypeName("const pixman_region32_t *")] pixman_region32* reg1, [NativeTypeName("const pixman_region32_t *")] pixman_region32* reg2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_union([NativeTypeName("pixman_region32_t *")] pixman_region32* new_reg, [NativeTypeName("const pixman_region32_t *")] pixman_region32* reg1, [NativeTypeName("const pixman_region32_t *")] pixman_region32* reg2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_intersect_rect([NativeTypeName("pixman_region32_t *")] pixman_region32* dest, [NativeTypeName("const pixman_region32_t *")] pixman_region32* source, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_union_rect([NativeTypeName("pixman_region32_t *")] pixman_region32* dest, [NativeTypeName("const pixman_region32_t *")] pixman_region32* source, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_subtract([NativeTypeName("pixman_region32_t *")] pixman_region32* reg_d, [NativeTypeName("const pixman_region32_t *")] pixman_region32* reg_m, [NativeTypeName("const pixman_region32_t *")] pixman_region32* reg_s);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_inverse([NativeTypeName("pixman_region32_t *")] pixman_region32* new_reg, [NativeTypeName("const pixman_region32_t *")] pixman_region32* reg1, [NativeTypeName("const pixman_box32_t *")] pixman_box32* inv_rect);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_contains_point([NativeTypeName("const pixman_region32_t *")] pixman_region32* region, int x, int y, [NativeTypeName("pixman_box32_t *")] pixman_box32* box);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern pixman_region_overlap_t pixman_region32_contains_rectangle([NativeTypeName("const pixman_region32_t *")] pixman_region32* region, [NativeTypeName("const pixman_box32_t *")] pixman_box32* prect);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_empty([NativeTypeName("const pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_not_empty([NativeTypeName("const pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_box32_t *")]
     public static extern pixman_box32* pixman_region32_extents([NativeTypeName("const pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_region32_n_rects([NativeTypeName("const pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_box32_t *")]
     public static extern pixman_box32* pixman_region32_rectangles([NativeTypeName("const pixman_region32_t *")] pixman_region32* region, int* n_rects);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_equal([NativeTypeName("const pixman_region32_t *")] pixman_region32* region1, [NativeTypeName("const pixman_region32_t *")] pixman_region32* region2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region32_selfcheck([NativeTypeName("pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_reset([NativeTypeName("pixman_region32_t *")] pixman_region32* region, [NativeTypeName("const pixman_box32_t *")] pixman_box32* box);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region32_clear([NativeTypeName("pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_init([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_init_rect([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_init_rectf([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, double x, double y, double width, double height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_init_rects([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, [NativeTypeName("const pixman_box64f_t *")] pixman_box64f* boxes, int count);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_init_with_extents([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, [NativeTypeName("const pixman_box64f_t *")] pixman_box64f* extents);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_init_from_image([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, [NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_fini([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_translate([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, int x, int y);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_translatef([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, double x, double y);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_copy([NativeTypeName("pixman_region64f_t *")] pixman_region64f* dest, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* source);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_intersect([NativeTypeName("pixman_region64f_t *")] pixman_region64f* new_reg, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* reg1, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* reg2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_union([NativeTypeName("pixman_region64f_t *")] pixman_region64f* new_reg, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* reg1, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* reg2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_intersect_rect([NativeTypeName("pixman_region64f_t *")] pixman_region64f* dest, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* source, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_intersect_rectf([NativeTypeName("pixman_region64f_t *")] pixman_region64f* dest, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* source, double x, double y, double width, double height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_union_rect([NativeTypeName("pixman_region64f_t *")] pixman_region64f* dest, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* source, int x, int y, [NativeTypeName("unsigned int")] uint width, [NativeTypeName("unsigned int")] uint height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_union_rectf([NativeTypeName("pixman_region64f_t *")] pixman_region64f* dest, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* source, double x, double y, double width, double height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_subtract([NativeTypeName("pixman_region64f_t *")] pixman_region64f* reg_d, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* reg_m, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* reg_s);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_inverse([NativeTypeName("pixman_region64f_t *")] pixman_region64f* new_reg, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* reg1, [NativeTypeName("const pixman_box64f_t *")] pixman_box64f* inv_rect);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_contains_point([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region, int x, int y, [NativeTypeName("pixman_box64f_t *")] pixman_box64f* box);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_contains_pointf([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region, double x, double y, [NativeTypeName("pixman_box64f_t *")] pixman_box64f* box);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern pixman_region_overlap_t pixman_region64f_contains_rectangle([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region, [NativeTypeName("const pixman_box64f_t *")] pixman_box64f* prect);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_empty([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_not_empty([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_box64f_t *")]
     public static extern pixman_box64f* pixman_region64f_extents([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_region64f_n_rects([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_box64f_t *")]
     public static extern pixman_box64f* pixman_region64f_rectangles([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region, int* n_rects);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_equal([NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region1, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region2);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_region64f_selfcheck([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_reset([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region, [NativeTypeName("const pixman_box64f_t *")] pixman_box64f* box);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_region64f_clear([NativeTypeName("pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_blt([NativeTypeName("uint32_t *")] uint* src_bits, [NativeTypeName("uint32_t *")] uint* dst_bits, int src_stride, int dst_stride, int src_bpp, int dst_bpp, int src_x, int src_y, int dest_x, int dest_y, int width, int height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_fill([NativeTypeName("uint32_t *")] uint* bits, int stride, int bpp, int x, int y, int width, int height, [NativeTypeName("uint32_t")] uint _xor);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_version();
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const char *")]
     public static extern sbyte* pixman_version_string();
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_format_supported_destination(pixman_format_code_t format);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_format_supported_source(pixman_format_code_t format);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_image_t *")]
     public static extern pixman_image* pixman_image_create_solid_fill([NativeTypeName("const pixman_color_t *")] pixman_color* color);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_image_t *")]
     public static extern pixman_image* pixman_image_create_linear_gradient([NativeTypeName("const pixman_point_fixed_t *")] pixman_point_fixed* p1, [NativeTypeName("const pixman_point_fixed_t *")] pixman_point_fixed* p2, [NativeTypeName("const pixman_gradient_stop_t *")] pixman_gradient_stop* stops, int n_stops);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_image_t *")]
     public static extern pixman_image* pixman_image_create_radial_gradient([NativeTypeName("const pixman_point_fixed_t *")] pixman_point_fixed* inner, [NativeTypeName("const pixman_point_fixed_t *")] pixman_point_fixed* outer, [NativeTypeName("pixman_fixed_t")] int inner_radius, [NativeTypeName("pixman_fixed_t")] int outer_radius, [NativeTypeName("const pixman_gradient_stop_t *")] pixman_gradient_stop* stops, int n_stops);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_image_t *")]
     public static extern pixman_image* pixman_image_create_conical_gradient([NativeTypeName("const pixman_point_fixed_t *")] pixman_point_fixed* center, [NativeTypeName("pixman_fixed_t")] int angle, [NativeTypeName("const pixman_gradient_stop_t *")] pixman_gradient_stop* stops, int n_stops);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_image_t *")]
     public static extern pixman_image* pixman_image_create_bits(pixman_format_code_t format, int width, int height, [NativeTypeName("uint32_t *")] uint* bits, int rowstride_bytes);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_image_t *")]
     public static extern pixman_image* pixman_image_create_bits_no_clear(pixman_format_code_t format, int width, int height, [NativeTypeName("uint32_t *")] uint* bits, int rowstride_bytes);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_image_t *")]
     public static extern pixman_image* pixman_image_ref([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_unref([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_destroy_function([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("pixman_image_destroy_func_t")] delegate* unmanaged[Cdecl]<pixman_image*, void*, void> function, void* data);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void* pixman_image_get_destroy_data([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_set_clip_region([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("const pixman_region16_t *")] pixman_region16* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_set_clip_region32([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("const pixman_region32_t *")] pixman_region32* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_set_clip_region64f([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("const pixman_region64f_t *")] pixman_region64f* region);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_has_client_clip([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("pixman_bool_t")] int clien_clip);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_set_transform([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("const pixman_transform_t *")] pixman_transform* transform);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_repeat([NativeTypeName("pixman_image_t *")] pixman_image* image, pixman_repeat_t repeat);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_dither([NativeTypeName("pixman_image_t *")] pixman_image* image, pixman_dither_t dither);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_dither_offset([NativeTypeName("pixman_image_t *")] pixman_image* image, int offset_x, int offset_y);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_set_filter([NativeTypeName("pixman_image_t *")] pixman_image* image, pixman_filter_t filter, [NativeTypeName("const pixman_fixed_t *")] int* filter_params, int n_filter_params);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_source_clipping([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("pixman_bool_t")] int source_clipping);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_alpha_map([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("pixman_image_t *")] pixman_image* alpha_map, [NativeTypeName("int16_t")] short x, [NativeTypeName("int16_t")] short y);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_component_alpha([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("pixman_bool_t")] int component_alpha);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_get_component_alpha([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_accessors([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("pixman_read_memory_func_t")] delegate* unmanaged[Cdecl]<void*, int, uint> read_func, [NativeTypeName("pixman_write_memory_func_t")] delegate* unmanaged[Cdecl]<void*, uint, int, void> write_func);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_set_indexed([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("const pixman_indexed_t *")] pixman_indexed* indexed);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("uint32_t *")]
     public static extern uint* pixman_image_get_data([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_image_get_width([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_image_get_height([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_image_get_stride([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int pixman_image_get_depth([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern pixman_format_code_t pixman_image_get_format([NativeTypeName("pixman_image_t *")] pixman_image* image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_fixed_t *")]
     public static extern int* pixman_filter_create_separable_convolution(int* n_values, [NativeTypeName("pixman_fixed_t")] int scale_x, [NativeTypeName("pixman_fixed_t")] int scale_y, pixman_kernel_t reconstruct_x, pixman_kernel_t reconstruct_y, pixman_kernel_t sample_x, pixman_kernel_t sample_y, int subsample_bits_x, int subsample_bits_y);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_fill_rectangles(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("const pixman_color_t *")] pixman_color* color, int n_rects, [NativeTypeName("const pixman_rectangle16_t *")] pixman_rectangle16* rects);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_image_fill_boxes(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* dest, [NativeTypeName("const pixman_color_t *")] pixman_color* color, int n_boxes, [NativeTypeName("const pixman_box32_t *")] pixman_box32* boxes);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_bool_t")]
     public static extern int pixman_compute_composite_region([NativeTypeName("pixman_region16_t *")] pixman_region16* region, [NativeTypeName("pixman_image_t *")] pixman_image* src_image, [NativeTypeName("pixman_image_t *")] pixman_image* mask_image, [NativeTypeName("pixman_image_t *")] pixman_image* dest_image, [NativeTypeName("int16_t")] short src_x, [NativeTypeName("int16_t")] short src_y, [NativeTypeName("int16_t")] short mask_x, [NativeTypeName("int16_t")] short mask_y, [NativeTypeName("int16_t")] short dest_x, [NativeTypeName("int16_t")] short dest_y, [NativeTypeName("uint16_t")] ushort width, [NativeTypeName("uint16_t")] ushort height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_composite(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* src, [NativeTypeName("pixman_image_t *")] pixman_image* mask, [NativeTypeName("pixman_image_t *")] pixman_image* dest, [NativeTypeName("int16_t")] short src_x, [NativeTypeName("int16_t")] short src_y, [NativeTypeName("int16_t")] short mask_x, [NativeTypeName("int16_t")] short mask_y, [NativeTypeName("int16_t")] short dest_x, [NativeTypeName("int16_t")] short dest_y, [NativeTypeName("uint16_t")] ushort width, [NativeTypeName("uint16_t")] ushort height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_composite32(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* src, [NativeTypeName("pixman_image_t *")] pixman_image* mask, [NativeTypeName("pixman_image_t *")] pixman_image* dest, [NativeTypeName("int32_t")] int src_x, [NativeTypeName("int32_t")] int src_y, [NativeTypeName("int32_t")] int mask_x, [NativeTypeName("int32_t")] int mask_y, [NativeTypeName("int32_t")] int dest_x, [NativeTypeName("int32_t")] int dest_y, [NativeTypeName("int32_t")] int width, [NativeTypeName("int32_t")] int height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_image_composite64f(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* src, [NativeTypeName("pixman_image_t *")] pixman_image* mask, [NativeTypeName("pixman_image_t *")] pixman_image* dest, double src_x, double src_y, double mask_x, double mask_y, double dest_x, double dest_y, double width, double height);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_disable_out_of_bounds_workaround();
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern pixman_glyph_cache_t* pixman_glyph_cache_create();
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_glyph_cache_destroy(pixman_glyph_cache_t* cache);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_glyph_cache_freeze(pixman_glyph_cache_t* cache);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_glyph_cache_thaw(pixman_glyph_cache_t* cache);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const void *")]
     public static extern void* pixman_glyph_cache_lookup(pixman_glyph_cache_t* cache, void* font_key, void* glyph_key);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("const void *")]
     public static extern void* pixman_glyph_cache_insert(pixman_glyph_cache_t* cache, void* font_key, void* glyph_key, int origin_x, int origin_y, [NativeTypeName("pixman_image_t *")] pixman_image* glyph_image);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_glyph_cache_remove(pixman_glyph_cache_t* cache, void* font_key, void* glyph_key);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_glyph_get_extents(pixman_glyph_cache_t* cache, int n_glyphs, pixman_glyph_t* glyphs, [NativeTypeName("pixman_box32_t *")] pixman_box32* extents);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern pixman_format_code_t pixman_glyph_get_mask_format(pixman_glyph_cache_t* cache, int n_glyphs, [NativeTypeName("const pixman_glyph_t *")] pixman_glyph_t* glyphs);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_composite_glyphs(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* src, [NativeTypeName("pixman_image_t *")] pixman_image* dest, pixman_format_code_t mask_format, [NativeTypeName("int32_t")] int src_x, [NativeTypeName("int32_t")] int src_y, [NativeTypeName("int32_t")] int mask_x, [NativeTypeName("int32_t")] int mask_y, [NativeTypeName("int32_t")] int dest_x, [NativeTypeName("int32_t")] int dest_y, [NativeTypeName("int32_t")] int width, [NativeTypeName("int32_t")] int height, pixman_glyph_cache_t* cache, int n_glyphs, [NativeTypeName("const pixman_glyph_t *")] pixman_glyph_t* glyphs);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_composite_glyphs_no_mask(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* src, [NativeTypeName("pixman_image_t *")] pixman_image* dest, [NativeTypeName("int32_t")] int src_x, [NativeTypeName("int32_t")] int src_y, [NativeTypeName("int32_t")] int dest_x, [NativeTypeName("int32_t")] int dest_y, pixman_glyph_cache_t* cache, int n_glyphs, [NativeTypeName("const pixman_glyph_t *")] pixman_glyph_t* glyphs);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_fixed_t")]
     public static extern int pixman_sample_ceil_y([NativeTypeName("pixman_fixed_t")] int y, int bpp);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     [return: NativeTypeName("pixman_fixed_t")]
     public static extern int pixman_sample_floor_y([NativeTypeName("pixman_fixed_t")] int y, int bpp);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_edge_step([NativeTypeName("pixman_edge_t *")] pixman_edge* e, int n);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_edge_init([NativeTypeName("pixman_edge_t *")] pixman_edge* e, int bpp, [NativeTypeName("pixman_fixed_t")] int y_start, [NativeTypeName("pixman_fixed_t")] int x_top, [NativeTypeName("pixman_fixed_t")] int y_top, [NativeTypeName("pixman_fixed_t")] int x_bot, [NativeTypeName("pixman_fixed_t")] int y_bot);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_line_fixed_edge_init([NativeTypeName("pixman_edge_t *")] pixman_edge* e, int bpp, [NativeTypeName("pixman_fixed_t")] int y, [NativeTypeName("const pixman_line_fixed_t *")] pixman_line_fixed* line, int x_off, int y_off);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_rasterize_edges([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("pixman_edge_t *")] pixman_edge* l, [NativeTypeName("pixman_edge_t *")] pixman_edge* r, [NativeTypeName("pixman_fixed_t")] int t, [NativeTypeName("pixman_fixed_t")] int b);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_add_traps([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("int16_t")] short x_off, [NativeTypeName("int16_t")] short y_off, int ntrap, [NativeTypeName("const pixman_trap_t *")] pixman_trap* traps);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_add_trapezoids([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("int16_t")] short x_off, int y_off, int ntraps, [NativeTypeName("const pixman_trapezoid_t *")] pixman_trapezoid* traps);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_rasterize_trapezoid([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("const pixman_trapezoid_t *")] pixman_trapezoid* trap, int x_off, int y_off);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_composite_trapezoids(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* src, [NativeTypeName("pixman_image_t *")] pixman_image* dst, pixman_format_code_t mask_format, int x_src, int y_src, int x_dst, int y_dst, int n_traps, [NativeTypeName("const pixman_trapezoid_t *")] pixman_trapezoid* traps);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_composite_triangles(pixman_op_t op, [NativeTypeName("pixman_image_t *")] pixman_image* src, [NativeTypeName("pixman_image_t *")] pixman_image* dst, pixman_format_code_t mask_format, int x_src, int y_src, int x_dst, int y_dst, int n_tris, [NativeTypeName("const pixman_triangle_t *")] pixman_triangle* tris);
 
-    [DllImport("pixman-1", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void pixman_add_triangles([NativeTypeName("pixman_image_t *")] pixman_image* image, [NativeTypeName("int32_t")] int x_off, [NativeTypeName("int32_t")] int y_off, int n_tris, [NativeTypeName("const pixman_triangle_t *")] pixman_triangle* tris);
 
     [NativeTypeName("#define pixman_fixed_e ((pixman_fixed_t) 1)")]
